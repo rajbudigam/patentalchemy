@@ -43,13 +43,6 @@ PatentAlchemy bridges the gap between **patent knowledge** and **sustainable man
 4. ** Climate Blindness**: No integrated carbon footprint assessment
 5. ** Traceability Void**: No living product intelligence beyond manufacturing
 
-### Market Context
-
-- **$2.5T+ annual patent value** locked in static documents [^1]
-- **40% of patents** contain sustainable technology [^2]
-- **$12T climate tech market** by 2030 [^3]
-- **80% of products** lack digital traceability [^4]
-
 ##  Solution Overview
 
 PatentAlchemy provides an end-to-end pipeline that transforms patents into actionable, traceable products:
@@ -312,17 +305,22 @@ docker compose up -d
 }
 ```
 
-## 🔬 Research & Citations
+### Research and references
 
-### Academic & Industry Sources
-
-[^1]: **World Intellectual Property Organization (WIPO)**: "Patents contain an estimated $2.5 trillion in untapped value" - [WIPO IP Facts and Figures 2023](https://www.wipo.int/publications/en/details.jsp?id=4807)
-
-[^2]: **United Nations Environment Programme (UNEP)**: "Over 40% of patents filed globally relate to environmental technologies" - [UNEP Patent Landscape Report 2022](https://www.unep.org/resources/report/patent-landscape-report-environmental-technologies)
-
-[^3]: **BloombergNEF**: "$12 trillion climate tech market opportunity by 2030" - [Climate Tech Investment Trends 2024](https://about.bnef.com/blog/climate-tech-investment-trends-2024/)
-
-[^4]: **GS1**: "80% of products lack proper digital traceability" - [GS1 Digital Link Standards Report 2023](https://www.gs1.org/services/digital-link)
+These are representative sources for the problem framing and market context:
+	•	Business and Sustainable Development Commission. Better Business, Better World (2017). Report on economic opportunities from meeting the Sustainable Development Goals.
+https://betterbusinessbetterworld.report/
+	•	WIPO. WIPO IP Facts and Figures 2023. Context on patents and their economic significance.
+https://www.wipo.int/publications/en/details.jsp?id=4807
+	•	BloombergNEF. Climate Tech Investment Trends 2024. Overview of capital flows and market sizing for climate technologies.
+https://about.bnef.com/blog/climate-tech-investment-trends-2024/
+	•	GS1. Digital Link and EPCIS standards. Practical reference for identifiers, deep links and event tracking.
+https://www.gs1.org/standards/digital-link
+https://www.gs1.org/standards/epcis
+	•	International Aluminium Institute (IAI). LCA data and guidance for aluminum production.
+https://international-aluminium.org/
+	•	World Steel Association. Steel LCA and sustainability data.
+https://www.worldsteel.org/steel-stories/steel-lca-data.html
 
 ### Technical Standards
 
@@ -376,13 +374,3 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 - **FastAPI** and **Next.js** communities for excellent frameworks
 - **Open source LCA databases** for carbon footprint data
 
-## 📞 Contact
-
-- **Project Lead**: [Your Name]
-- **Email**: contact@patentalchemy.com
-- **GitHub**: [https://github.com/your-org/patentalchemy](https://github.com/your-org/patentalchemy)
-- **Documentation**: [https://docs.patentalchemy.com](https://docs.patentalchemy.com)
-
----
-
-**PatentAlchemy**: Democratizing sustainable design intelligence through AI-powered patent analysis and living Digital Product Passports. 🌱🔗📱
