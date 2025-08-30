@@ -1,135 +1,74 @@
-
 "use client";
 import Shell from "../components/Shell";
-import GlassCard from "../components/GlassCard";
-import { useEffect, useState } from "react";
-import { toQRDataURL } from "./lib/qr";
-import { externalBaseUrl } from "./lib/url";
-import type { Block, BomLine, Dpp, PatentInput } from "./lib/schema";
+import DopamineButton from "../components/DopamineButton";
+import Link from "next/link";
 import { motion } from "framer-motion";
-import { QrCode, Wand2, Plus, Leaf } from "lucide-react";
-
-type ScreeningResp = { ghg_kgco2e: number; breakdown: Record<string, number>; method: string };
+import { ArrowRight, QrCode, FlaskConical, BookOpenText } from "lucide-react";
 
 export default function Page() {
-  const [patent, setPatent] = useState<PatentInput>({});
-  const [blocks, setBlocks] = useState<Block[]>([]);
-  const [bom, setBom] = useState<BomLine[]>([]);
-  const [screening, setScreening] = useState<ScreeningResp | null>(null);
-  const [dpp, setDpp] = useState<Dpp | null>(null);
-  const [qr, setQr] = useState<string | null>(null);
-  const [lint, setLint] = useState<{ok:boolean; issues:string[]} | null>(null);
-
-  async function loadSample() {
-    const r = await fetch(`/api/sample`);
-    const j = await r.json();
-    setPatent(j.patent);
-    setBlocks(j.blocks);
-  }
-
-  async function analyzeUrl(url: string) {
-    const r = await fetch(`/api/patent/analyze`, { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ source_url: url }) });
-    const j = await r.json();
-    setPatent(j.patent); setBlocks(j.blocks);
-  }
-
-  function addToBom(b: Block) {
-    const m = prompt(`Material for "${b.label}"?`, "aluminum"); if (!m) return;
-    const variant = (prompt(`Variant? "virgin" or "recycled"`, "recycled") || "recycled") as "virgin" | "recycled";
-    const mass = parseFloat(prompt(`Mass (kg)`, "0.25") || "0.25");
-    setBom([...bom, { block: b.label, material: m.toLowerCase(), variant, mass_kg: mass }]);
-  }
-
-  async function computeScreening() {
-    const r = await fetch(`/api/footprint/compute`, { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ bom }) });
-    setScreening(await r.json());
-  }
-
-  async function mintDpp() {
-    const base = externalBaseUrl();
-    const product = { name: patent.title?.slice(0, 40) || "Remix Component", category: "furniture_component" };
-    const r = await fetch(`/api/dpp/mint`, {
-      method: "POST", headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ product, bom, patent, screening })
-    });
-    const j = await r.json(); setDpp(j);
-
-    // Fetch lint
-    const lintResp = await fetch(`/api/dpp/lint`, { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ dpp: j }) });
-    setLint(await lintResp.json());
-
-    // GS1 Digital Link–style path: /01/<gtin>/21/<serial>
-    const gs1 = `${base}/01/${j.identifiers.gtin}/21/${encodeURIComponent(j.identifiers.serial)}`;
-    setQr(await toQRDataURL(gs1));
-  }
-
   return (
     <Shell>
-      <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }}>
-        <div className="mb-6">
-          <h1 className="text-3xl sm:text-4xl font-semibold tracking-tight">Patent → Passport in minutes</h1>
-          <p className="opacity-80 mt-2 max-w-2xl">Remix an eco-friendly patent into a buildable design, screen its footprint (kg CO₂e), and mint a Digital Product Passport with a scannable QR.</p>
-        </div>
-
-        <GlassCard title="Get Started" right={<button onClick={loadSample} className="px-3 py-2 rounded-lg bg-white/10 hover:bg-white/15">Load Sample Patent</button>}>
-          <div className="flex flex-col sm:flex-row gap-3">
-            <input type="url" placeholder="Paste a WIPO / WIPO GREEN URL" className="flex-1 px-4 py-3 rounded-lg bg-black/30 border border-white/10 outline-none"
-              onKeyDown={e => { if (e.key === "Enter") analyzeUrl((e.target as HTMLInputElement).value); }} />
-            <button className="px-4 py-3 rounded-lg bg-white/10 hover:bg-white/15 flex items-center gap-2"
-              onClick={() => { const v = (document.querySelector("input[type=url]") as HTMLInputElement)?.value; if (v) analyzeUrl(v); }}>
-              <Wand2 size={18} /> Analyze
-            </button>
+      <section className="relative overflow-hidden">
+        <motion.div
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7 }}
+          className="max-w-5xl"
+        >
+          <h1 className="text-4xl sm:text-6xl font-semibold leading-tight tracking-tight">
+            Patent → Passport, reimagined
+          </h1>
+          <p className="mt-4 text-lg opacity-85 max-w-2xl">
+            Analyze patents, compose materials, compute climate impact, and mint living Digital Product Passports with jaw‑dropping clarity.
+          </p>
+          <div className="mt-6 flex flex-wrap gap-3">
+            <Link href="/workbench">
+              <DopamineButton className="">
+                Launch Workbench <ArrowRight size={16} />
+              </DopamineButton>
+            </Link>
+            <Link href="/about">
+              <DopamineButton className="bg-white/10 hover:bg-white/15">
+                Learn the System <BookOpenText size={16} />
+              </DopamineButton>
+            </Link>
           </div>
-          <p className="text-xs opacity-60 mt-2">Standards-flavored outputs: GS1 Digital Link path and EPCIS JSON events. USEEIO-aligned categories; screening factors from sector authorities.</p>
-        </GlassCard>
+        </motion.div>
 
-        <GlassCard title="Blocks">
-          {blocks.length === 0 ? <p className="opacity-70">Load a sample or analyze a URL. We'll extract 5–12 functional blocks.</p> :
-            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-3">
-              {blocks.map((b, i) => (
-                <button key={i} onClick={() => addToBom(b)} className="text-left p-4 rounded-xl2 bg-white/5 hover:bg-white/10">
-                  <div className="font-medium">{b.label}</div>
-                  <div className="text-xs opacity-60">confidence {Math.round(b.confidence * 100)}%</div>
-                </button>
-              ))}
-            </div>}
-        </GlassCard>
-
-        <GlassCard title="BOM & Screening" right={<button onClick={computeScreening} className="px-3 py-2 rounded-lg bg-emerald-400/20 hover:bg-emerald-400/30 text-emerald-200 flex items-center gap-2"><Leaf size={16}/> Compute</button>}>
-          {bom.length === 0 ? <p className="opacity-70">Add blocks to your Bill of Materials (BOM). We'll compute <b>kg CO₂e</b>.</p> :
-            <div className="overflow-x-auto">
-              <table className="w-full text-sm">
-                <thead className="opacity-70"><tr><th className="text-left p-2">Block</th><th className="text-left p-2">Material</th><th className="text-left p-2">Variant</th><th className="text-left p-2">Mass (kg)</th></tr></thead>
-                <tbody>{bom.map((l, i) => (<tr key={i} className="border-t border-white/10"><td className="p-2">{l.block}</td><td className="p-2">{l.material}</td><td className="p-2">{l.variant}</td><td className="p-2">{l.mass_kg}</td></tr>))}</tbody>
-              </table>
-              {screening && (
-                <div className="mt-3 text-sm">
-                  <div>Total: <b>{screening.ghg_kgco2e.toFixed(3)} kg CO₂e</b></div>
-                  <div className="opacity-70">Method: {screening.method}</div>
-                </div>
-              )}
-            </div>}
-        </GlassCard>
-
-        <GlassCard title="Mint Digital Product Passport" right={<button onClick={mintDpp} className="px-3 py-2 rounded-lg bg-white/10 hover:bg-white/15 flex items-center gap-2"><QrCode size={16}/> Mint DPP</button>}>
-          {!dpp ? <p className="opacity-70">When ready, mint a DPP (JSON) and a **GS1 Digital Link** QR. Scan it live. (/01/&lt;gtin&gt;/21/&lt;serial&gt;)</p> :
-            <div className="grid md:grid-cols-2 gap-4">
-              <div className="p-4 rounded-xl2 bg-white/5">
-                <div className="text-sm opacity-70 mb-1">QR (scan me)</div>
-                {qr && <img className="qr w-64 h-64" src={qr} alt="QR" />}
-              </div>
-              <div className="p-4 rounded-xl2 bg-white/5">
-                <div className="text-sm opacity-70 mb-1">DPP JSON</div>
-                <pre className="text-xs whitespace-pre-wrap break-all">{JSON.stringify(dpp, null, 2)}</pre>
-                {lint && !lint.ok && (
-                  <div className="mt-3 text-xs text-amber-200">
-                    <b>Lint:</b> {lint.issues.join(" · ")}
-                  </div>
-                )}
-              </div>
-            </div>}
-        </GlassCard>
-      </motion.div>
+        <div className="mt-12 grid md:grid-cols-3 gap-4">
+          {[
+            {
+              title: "Analyze",
+              icon: <FlaskConical size={18} />,
+              desc: "Extract functional blocks from public patents with crisp structure.",
+              href: "/workbench",
+            },
+            {
+              title: "Screen",
+              icon: <QrCode size={18} />,
+              desc: "Estimate kg CO₂e using sector factors and USEEIO mapping.",
+              href: "/workbench",
+            },
+            {
+              title: "Passport",
+              icon: <QrCode size={18} />,
+              desc: "Mint GS1 Digital Link + EPCIS‑flavored JSON. Scan instantly.",
+              href: "/workbench",
+            },
+          ].map((c, i) => (
+            <motion.a
+              key={i}
+              href={c.href}
+              whileHover={{ y: -4 }}
+              className="card rounded-xl2 p-5 block"
+            >
+              <div className="text-sm opacity-70 flex items-center gap-2">{c.icon} {c.title}</div>
+              <div className="mt-2 text-base opacity-85">{c.desc}</div>
+            </motion.a>
+          ))}
+        </div>
+      </section>
     </Shell>
   );
 }
+

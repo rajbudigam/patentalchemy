@@ -4,10 +4,7 @@ export const metadata = { title: "PatentAlchemy", description: "Patent → Passp
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
-      <body className="text-sugar">
-        <div className="plasma" />
-        {children}
-      </body>
+      <body className="text-sugar">{children}</body>
     </html>
   );
 }
