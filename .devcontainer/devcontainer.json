@@ -1,0 +1,24 @@
+{
+  "name": "PatentAlchemy Dev",
+  "features": {
+    "ghcr.io/devcontainers/features/node:1": { "version": "20" },
+    "ghcr.io/devcontainers/features/python:1": { "version": "3.12" }
+  },
+  "postCreateCommand": "cd apps/web && npm i && cd ../../apps/api && pip install --upgrade pip uvicorn fastapi pydantic",
+  "portsAttributes": {
+    "3000": { "label": "web (Next.js)", "onAutoForward": "openBrowser" },
+    "8000": { "label": "api (FastAPI)", "onAutoForward": "notify" }
+  },
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "esbenp.prettier-vscode",
+        "dbaeumer.vscode-eslint",
+        "yoavbls.pretty-ts-errors",
+        "ms-python.python",
+        "ms-python.vscode-pylance",
+        "bradlc.vscode-tailwindcss"
+      ]
+    }
+  }
+}

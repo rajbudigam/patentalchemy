@@ -1,0 +1,6 @@
+{
+  "aluminum": { "virgin": 1.00, "recycled": 0.58 },
+  "steel":    { "virgin": 0.85, "recycled": 0.55 },
+  "cotton":   { "virgin": 0.70, "recycled": 0.32 },
+  "polyester":{ "virgin": 0.90, "recycled": 0.50 }
+}

@@ -1,0 +1,26 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Kinetic aurora background */
+:root { --bg: #07070a; --fg: #f7f8fc; }
+html, body { height: 100%; background: radial-gradient(1200px 800px at 10% 10%, #10111a 0%, #07070a 60%); }
+
+.plasma {
+  position: fixed; inset: 0; pointer-events: none; filter: blur(40px) saturate(130%) contrast(105%);
+}
+.plasma::before, .plasma::after {
+  content: ""; position: absolute; width: 60vmax; height: 60vmax; border-radius: 50%;
+  background: conic-gradient(from 0deg, #55ccff, #88ffcc, #eac0ff, #55ccff);
+  opacity: 0.2; mix-blend-mode: screen; animation: blob 28s linear infinite;
+}
+.plasma::after { left: 40%; top: 20%; animation-duration: 36s; }
+
+.card {
+  backdrop-filter: blur(8px) saturate(120%);
+  background: linear-gradient(180deg, rgba(255,255,255,0.08), rgba(255,255,255,0.03));
+  border: 1px solid rgba(255,255,255,0.08);
+}
+
+/* QR fit */
+img.qr { image-rendering: pixelated; }

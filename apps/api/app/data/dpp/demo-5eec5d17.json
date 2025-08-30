@@ -1,0 +1,40 @@
+{
+  "id": "demo-5eec5d17",
+  "identifiers": {
+    "gtin": "00000000000000",
+    "serial": "DEMO-5EEC5D17"
+  },
+  "product": {
+    "name": "Modular tool-less joinery for recycled a",
+    "category": "furniture_component"
+  },
+  "composition": [
+    {
+      "material": "Aluminum",
+      "recycled_pct": 100,
+      "mass_kg": 0.25
+    }
+  ],
+  "sustainability": {
+    "ghg_kgco2e": 0.15,
+    "method": "Screening factors (IAI, worldsteel, PET LCA)"
+  },
+  "repair": {
+    "method": "Allen key"
+  },
+  "provenance": {
+    "source_patent_url": "https://www3.wipo.int/wipogreen/en/",
+    "legal_status": "pledged_or_expired"
+  },
+  "events": [
+    {
+      "type": "EPCIS:ObjectEvent",
+      "bizStep": "commissioning",
+      "action": "ADD",
+      "eventTime": "2025-08-30T06:58:32.239176Z",
+      "epcList": [
+        "urn:epc:id:sgtin:0000000.449371.demo-5eec5d17"
+      ]
+    }
+  ]
+}

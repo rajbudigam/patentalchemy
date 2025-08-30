@@ -1,0 +1,5 @@
+{
+  "aluminum": { "virgin": 15.1, "recycled": 0.6 },
+  "steel":    { "virgin": 1.92, "recycled": 0.70 },
+  "polyester":{ "virgin": 2.4,  "recycled": 1.0 }
+}
