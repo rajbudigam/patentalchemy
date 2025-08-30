@@ -219,7 +219,7 @@ npm run dev
 docker compose up -d
 ```
 
-## 📖 Usage
+##  Usage
 
 ### Basic Workflow
 
@@ -308,18 +308,18 @@ docker compose up -d
 ### Research and references
 
 These are representative sources for the problem framing and market context:
-	- Business and Sustainable Development Commission. Better Business, Better World (2017). Report on economic opportunities from meeting the Sustainable Development Goals.
+- Business and Sustainable Development Commission. Better Business, Better World (2017). Report on economic opportunities from meeting the Sustainable Development Goals.
 https://betterbusinessbetterworld.report/
-	- WIPO. WIPO IP Facts and Figures 2023. Context on patents and their economic significance.
+- WIPO. WIPO IP Facts and Figures 2023. Context on patents and their economic significance.
 https://www.wipo.int/publications/en/details.jsp?id=4807
-	- BloombergNEF. Climate Tech Investment Trends 2024. Overview of capital flows and market sizing for climate technologies.
+- BloombergNEF. Climate Tech Investment Trends 2024. Overview of capital flows and market sizing for climate technologies.
 https://about.bnef.com/blog/climate-tech-investment-trends-2024/
-	- GS1. Digital Link and EPCIS standards. Practical reference for identifiers, deep links and event tracking.
+- GS1. Digital Link and EPCIS standards. Practical reference for identifiers, deep links and event tracking.
 https://www.gs1.org/standards/digital-link
 https://www.gs1.org/standards/epcis
-	- International Aluminium Institute (IAI). LCA data and guidance for aluminum production.
+- International Aluminium Institute (IAI). LCA data and guidance for aluminum production.
 https://international-aluminium.org/
-	- World Steel Association. Steel LCA and sustainability data.
+- World Steel Association. Steel LCA and sustainability data.
 https://www.worldsteel.org/steel-stories/steel-lca-data.html
 
 ### Technical Standards
