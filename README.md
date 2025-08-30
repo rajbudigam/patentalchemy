@@ -1,4 +1,4 @@
-# PatentAlchemy 🧪
+# PatentAlchemy 
 
 > **Patent → Passport**: Transform public patents into living Digital Product Passports with AI-powered analysis, climate impact screening, and GS1 deep-linking.
 
@@ -7,7 +7,7 @@
 [![Next.js 14](https://img.shields.io/badge/Next.js-14-black.svg)](https://nextjs.org/)
 [![FastAPI](https://img.shields.io/badge/FastAPI-0.112+-green.svg)](https://fastapi.tiangolo.com/)
 
-## 🌟 Vision
+##  Vision
 
 PatentAlchemy bridges the gap between **patent knowledge** and **sustainable manufacturing** by transforming static patent documents into **living Digital Product Passports (DPPs)** that encode complete product intelligence including:
 
@@ -31,17 +31,17 @@ PatentAlchemy bridges the gap between **patent knowledge** and **sustainable man
 - [Contributing](#-contributing)
 - [License](#-license)
 
-## 🚨 Problem Statement
+##  Problem Statement
 
 ### The Patent Paradox in Sustainable Manufacturing
 
 **The Challenge**: Public patents contain trillions of dollars in sustainable design knowledge, yet this intellectual property remains largely inaccessible to manufacturers and designers. Key issues include:
 
-1. **📄 Static Documents**: Patents exist as PDF/text documents, not structured data
-2. **🔍 Discovery Gap**: No systematic way to find sustainable design patterns
-3. **⚡ Implementation Barrier**: Hard to extract functional blocks and material specs
-4. **🌱 Climate Blindness**: No integrated carbon footprint assessment
-5. **🔗 Traceability Void**: No living product intelligence beyond manufacturing
+1. ** Static Documents**: Patents exist as PDF/text documents, not structured data
+2. ** Discovery Gap**: No systematic way to find sustainable design patterns
+3. ** Implementation Barrier**: Hard to extract functional blocks and material specs
+4. ** Climate Blindness**: No integrated carbon footprint assessment
+5. ** Traceability Void**: No living product intelligence beyond manufacturing
 
 ### Market Context
 
@@ -50,7 +50,7 @@ PatentAlchemy bridges the gap between **patent knowledge** and **sustainable man
 - **$12T climate tech market** by 2030 [^3]
 - **80% of products** lack digital traceability [^4]
 
-## 🛠️ Solution Overview
+##  Solution Overview
 
 PatentAlchemy provides an end-to-end pipeline that transforms patents into actionable, traceable products:
 
@@ -60,15 +60,15 @@ Patent Document → AI Analysis → Functional Blocks → BOM Assembly → CO₂
 
 ### Core Workflow
 
-1. **📥 Patent Ingestion**: Parse WIPO PATENTSCOPE or WIPO GREEN documents
-2. **🧠 Block Extraction**: Use NLP + heuristics to identify functional components
-3. **🏗️ BOM Assembly**: Map blocks to materials with virgin/recycled variants
-4. **🌡️ Climate Screening**: Calculate kg CO₂e using IAI, worldsteel, and PET LCA factors
-5. **🎫 DPP Minting**: Create structured Digital Product Passports
-6. **📱 GS1 Integration**: Generate scannable QR codes with deep-linking
-7. **📊 EPCIS Events**: Track product lifecycle with electronic pedigree
+1. ** Patent Ingestion**: Parse WIPO PATENTSCOPE or WIPO GREEN documents
+2. ** Block Extraction**: Use NLP + heuristics to identify functional components
+3. ** BOM Assembly**: Map blocks to materials with virgin/recycled variants
+4. ** Climate Screening**: Calculate kg CO₂e using IAI, worldsteel, and PET LCA factors
+5. ** DPP Minting**: Create structured Digital Product Passports
+6. ** GS1 Integration**: Generate scannable QR codes with deep-linking
+7. ** EPCIS Events**: Track product lifecycle with electronic pedigree
 
-## 💡 Key Innovations
+##  Key Innovations
 
 ### 1. **Patent-to-Product Intelligence Pipeline**
 **Novelty**: First system to extract structured manufacturing intelligence from patent text using AI.
@@ -98,7 +98,7 @@ Patent Document → AI Analysis → Functional Blocks → BOM Assembly → CO₂
 - **Repair Method Encoding**: Documents serviceability requirements
 - **Legal Status Integration**: Links to patent pledge programs
 
-## 🏗️ Technical Architecture
+##  Technical Architecture
 
 ### Backend (FastAPI + Python)
 
@@ -159,7 +159,7 @@ Patent Document → AI Analysis → Functional Blocks → BOM Assembly → CO₂
 └─────────────────┘    └─────────────────┘    └─────────────────┘
 ```
 
-## ✨ Features
+##  Features
 
 ### 🔍 Patent Analysis
 - **WIPO Integration**: Parse PATENTSCOPE and WIPO GREEN documents
@@ -167,37 +167,37 @@ Patent Document → AI Analysis → Functional Blocks → BOM Assembly → CO₂
 - **IPC Classification**: Automatic patent class identification
 - **Legal Status Tracking**: Integration with patent pledge programs
 
-### 🧱 Block Extraction
+###  Block Extraction
 - **Functional Decomposition**: Extract connectors, housings, bushings
 - **Confidence Scoring**: Quality metrics for extracted blocks
 - **Material Hints**: Recycled content detection from patent text
 - **Claims Processing**: Structured analysis of patent claims
 
-### 🏭 BOM Assembly
+###  BOM Assembly
 - **Material Mapping**: Link blocks to specific materials
 - **Variant Selection**: Virgin vs recycled material options
 - **Mass Calculation**: Weight-based composition tracking
 - **Cost Estimation**: Optional unit cost integration
 
-### 🌡️ Climate Screening
+###  Climate Screening
 - **Authoritative Factors**: IAI, worldsteel, PET LCA data
 - **Real-time Calculation**: Instant CO₂e feedback
 - **Breakdown Analysis**: Per-material impact attribution
 - **Method Transparency**: Source documentation
 
-### 🎫 DPP Minting
+###  DPP Minting
 - **GS1 Compliance**: Proper identifier structure
 - **EPCIS Events**: Supply chain event tracking
 - **Repair Documentation**: Serviceability information
 - **Provenance Tracking**: Patent source attribution
 
-### 📱 GS1 Integration
+###  GS1 Integration
 - **Digital Link Generation**: `/01/{gtin}/21/{serial}` format
 - **QR Code Creation**: Scannable product identifiers
 - **Deep-link Resolution**: Mobile-friendly access
 - **Cross-platform Compatibility**: Works on any QR scanner
 
-## 🚀 Installation
+##  Installation
 
 ### Prerequisites
 - **Python 3.11+**
@@ -270,7 +270,7 @@ docker compose up -d
    });
    ```
 
-## 📚 API Reference
+##  API Reference
 
 ### Core Endpoints
 
@@ -336,7 +336,7 @@ docker compose up -d
 - **World Steel Association**: Steel production LCA factors - [World Steel LCA](https://www.worldsteel.org/steel-stories/steel-lca-data.html)
 - **PET LCA**: Polyester production environmental impact - [PET LCA Study](https://www.petcore-europe.org/)
 
-## 🤝 Contributing
+##  Contributing
 
 We welcome contributions! Please see our [Contributing Guide](CONTRIBUTING.md) for details.
 
@@ -365,11 +365,11 @@ make build
 - **Integration APIs**: SAP, Oracle, ERP system connections
 - **Mobile Applications**: iOS/Android DPP readers
 
-## 📄 License
+## License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
-## 🙏 Acknowledgments
+## Acknowledgments
 
 - **WIPO** for patent data access and standards
 - **GS1** for Digital Link and EPCIS specifications
