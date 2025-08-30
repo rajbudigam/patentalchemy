@@ -179,3 +179,4 @@ dmypy.json
 data/dpp/
 *.tgz
 *.tar.gz
+.vercel

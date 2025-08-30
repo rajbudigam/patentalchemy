@@ -1,7 +1,7 @@
 import * as React from "react";
-import { motion } from "framer-motion";
+import { motion, HTMLMotionProps } from "framer-motion";
 
-type Props = React.ButtonHTMLAttributes<HTMLButtonElement> & {
+type Props = Omit<HTMLMotionProps<"button">, "onAnimationStart"> & {
   glow?: boolean;
   children: React.ReactNode;
 };
