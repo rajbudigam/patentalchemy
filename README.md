@@ -37,11 +37,11 @@ PatentAlchemy bridges the gap between **patent knowledge** and **sustainable man
 
 **The Challenge**: Public patents contain trillions of dollars in sustainable design knowledge, yet this intellectual property remains largely inaccessible to manufacturers and designers. Key issues include:
 
-1. ** Static Documents**: Patents exist as PDF/text documents, not structured data
-2. ** Discovery Gap**: No systematic way to find sustainable design patterns
-3. ** Implementation Barrier**: Hard to extract functional blocks and material specs
-4. ** Climate Blindness**: No integrated carbon footprint assessment
-5. ** Traceability Void**: No living product intelligence beyond manufacturing
+1. **Static Documents**: Patents exist as PDF/text documents, not structured data
+2. **Discovery Gap**: No systematic way to find sustainable design patterns
+3. **Implementation Barrier**: Hard to extract functional blocks and material specs
+4. **Climate Blindness**: No integrated carbon footprint assessment
+5. **Traceability Void**: No living product intelligence beyond manufacturing
 
 ##  Solution Overview
 
@@ -53,13 +53,13 @@ Patent Document → AI Analysis → Functional Blocks → BOM Assembly → CO₂
 
 ### Core Workflow
 
-1. ** Patent Ingestion**: Parse WIPO PATENTSCOPE or WIPO GREEN documents
-2. ** Block Extraction**: Use NLP + heuristics to identify functional components
-3. ** BOM Assembly**: Map blocks to materials with virgin/recycled variants
-4. ** Climate Screening**: Calculate kg CO₂e using IAI, worldsteel, and PET LCA factors
-5. ** DPP Minting**: Create structured Digital Product Passports
-6. ** GS1 Integration**: Generate scannable QR codes with deep-linking
-7. ** EPCIS Events**: Track product lifecycle with electronic pedigree
+1. **Patent Ingestion**: Parse WIPO PATENTSCOPE or WIPO GREEN documents
+2. **Block Extraction**: Use NLP + heuristics to identify functional components
+3. **BOM Assembly**: Map blocks to materials with virgin/recycled variants
+4. **Climate Screening**: Calculate kg CO₂e using IAI, worldsteel, and PET LCA factors
+5. **DPP Minting**: Create structured Digital Product Passports
+6. **GS1 Integration**: Generate scannable QR codes with deep-linking
+7. **EPCIS Events**: Track product lifecycle with electronic pedigree
 
 ##  Key Innovations
 
